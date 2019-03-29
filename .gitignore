@@ -16,6 +16,12 @@ hs_err_pid*
 
 *target*
 
+.project
+.classpath
+/target/
+javadoc
+
+
 # eclipse specific git ignore
 *.pydevproject
 .project
