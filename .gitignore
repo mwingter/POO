@@ -15,9 +15,9 @@
 *.war
 *.nar
 *.ear
-*.zip
+.zip
 *.tar.gz
-*.rar
+.rar
 
 # eclipse specific git ignore
 *.pydevproject
