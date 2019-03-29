@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-//Classe Mao, usada para administrar atributos de uma mÃ£o.
+//Classe Mao, usada para administrar atributos de uma mão.
 /**
- * Administra atributos de uma mÃ£o de cartas.
+ * Administra atributos de uma mão de cartas.
  * @author Michelle Wingter da Silva
  * @author 10783243
  *
@@ -11,17 +11,17 @@ public class Mao extends ArrayList<Carta> {
 	
 	/*
 	 * ************************************************************************************								
-	 * _____________________________COMBINAÃ‡Ã•ES__________________________________________ *
-	 *	CombinaÃ§Ã£o 												PrÃªmio					  *	
+	 * _____________________________COMBINAÇÕES__________________________________________ *
+	 *	Combinação 												Prêmio					  *	
 	 *	Dois pares 												1 X Valor da aposta		  *
 	 *	Trinca 													2 X valor da aposta		  *
-	 *	Straight (5 cartas em sequÃªncia de naipes diferentes) 	5 X valor da aposta		  *
-	 *	Flush (5 cartas do mesmo naipe nÃ£o seguidas) 			10 X valor da aposta	  *
+	 *	Straight (5 cartas em sequência de naipes diferentes) 	5 X valor da aposta		  *
+	 *	Flush (5 cartas do mesmo naipe não seguidas) 			10 X valor da aposta	  *
 	 *	Full hand (uma trinca e um par) 						20 X valor da aposta	  *
 	 *	Quadra 													50 X valor da aposta	  *
 	 *	Straight Flush (5 cartas seguidas do mesmo naipe) 		100 X valor da aposta	  *
 	 *	Royal Straight Flush 									200 X valor da aposta	  *
-	 *	(5 cartas seguidas do mesmo naipe de 10 atÃ© o As) 								  *
+	 *	(5 cartas seguidas do mesmo naipe de 10 até o As) 								  *
 	 * ___________________________________________________________________________________*
 	 **************************************************************************************
 	 */
@@ -30,8 +30,8 @@ public class Mao extends ArrayList<Carta> {
 
 	/**
 	 * Conta cartas de valores iguais e armazena no indice (em seus respectivos valores) do vetor.
-	 * @param m MÃ£o de cartas a ser contado.
-	 * @return count Vetor com a contagem das cartas da mÃ£o.
+	 * @param m Mão de cartas a ser contado.
+	 * @return count Vetor com a contagem das cartas da mão.
 	 */
 	public static int[] conta(Mao m) {
 		int [] count = new int [13];
@@ -50,9 +50,9 @@ public class Mao extends ArrayList<Carta> {
 	}
 	
 	/**
-	 * Verifica se a mÃ£o tem 2 pares.
-	 * @param m MÃ£o de cartas a ser verificado.
-	 * @return 1 se a mÃ£o tiver Dois Pares, 0 se nÃ£o tiver.
+	 * Verifica se a mão tem 2 pares.
+	 * @param m Mão de cartas a ser verificado.
+	 * @return 1 se a mão tiver Dois Pares, 0 se não tiver.
 	 */
 	public static int doisPares(Mao m) {
 		int [] iguais = conta(m);
@@ -66,14 +66,14 @@ public class Mao extends ArrayList<Carta> {
 			return 1; //tem dois pares
 		}
 		else {
-			return 0; //nÃ£o tem dois pares
+			return 0; //não tem dois pares
 		}
 	}
 
 	/**
-	 * Verifica se a mÃ£o tem uma trinca, ou seja, 3 cartas de mesmo valor (por ex: trÃªs J's, ou trÃªs 5's).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver uma Trinca, ou 0 se nÃ£o tiver.
+	 * Verifica se a mão tem uma trinca, ou seja, 3 cartas de mesmo valor (por ex: três J's, ou três 5's).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver uma Trinca, ou 0 se não tiver.
 	 */
 	public static int trinca(Mao m) { 
 		
@@ -84,13 +84,13 @@ public class Mao extends ArrayList<Carta> {
 				return 1; //tem trinca
 			}
 		}
-		return 0; //nÃ£o tem trinca
+		return 0; //não tem trinca
 	}
 	
 	/**
-	 * Verifica se a mÃ£o tem uma quadra, ou seja, 4 cartas de mesmo valor (por ex: 4 J's, ou 4 5's).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver uma Quadra, ou 0 se nÃ£o tiver.
+	 * Verifica se a mão tem uma quadra, ou seja, 4 cartas de mesmo valor (por ex: 4 J's, ou 4 5's).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver uma Quadra, ou 0 se não tiver.
 	 */
 	public static int quadra(Mao m) {
 			
@@ -101,17 +101,17 @@ public class Mao extends ArrayList<Carta> {
 				return 1; //tem quadra
 			}
 		}
-		return 0; //nÃ£o tem quadra
+		return 0; //não tem quadra
 	}
 		
 
 	/**
-	 * Verifica se a mÃ£o tem um Straight (5 cartas em sequencia, de naipes diferentes).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver um Straight, e 0 se nÃ£o tiver.
+	 * Verifica se a mão tem um Straight (5 cartas em sequencia, de naipes diferentes).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver um Straight, e 0 se não tiver.
 	 */
 	public static int straight(Mao m) {
-		//Ordenando as cartas da mÃ£o do maior pro menor (As, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2)
+		//Ordenando as cartas da mão do maior pro menor (As, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2)
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
 				if(m.get(i).getIntValor() < m.get(j).getIntValor()) {
@@ -132,7 +132,7 @@ public class Mao extends ArrayList<Carta> {
 		int seq = 0;
 		int dif = 0;
 		if(a == "As" && b == "2") {
-			seq++;//se a carta a for As e a carta b for 2, a diferenÃ§a entre elas Ã© 1
+			seq++;//se a carta a for As e a carta b for 2, a diferença entre elas é 1
 			nCards--;
 		}
 		
@@ -147,14 +147,14 @@ public class Mao extends ArrayList<Carta> {
 		if(seq == 4) {
 			return 1; //tem straight
 		}
-		return 0; //nÃ£o tem straight
+		return 0; //não tem straight
 	}
 	
 
 	/**
-	 * Verifica se a mÃ£o tem um Flush (5 cartas do mesmo naipe, nÃ£o em sequÃªncia).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver um Flush, ou 0 se nÃ£o.
+	 * Verifica se a mão tem um Flush (5 cartas do mesmo naipe, não em sequência).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver um Flush, ou 0 se não.
 	 */
 	public static int flush(Mao m) {
 		for(int i = 1; i < 5; i++) {
@@ -167,9 +167,9 @@ public class Mao extends ArrayList<Carta> {
 	
 
 	/**
-	 * Verifica se a mÃ£o tem um Straight Flush (5 cartas em sequencia e de mesmo naipe).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver um Straight Flush, ou 0 se nÃ£o.
+	 * Verifica se a mão tem um Straight Flush (5 cartas em sequencia e de mesmo naipe).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver um Straight Flush, ou 0 se não.
 	 */
 	public static int straightFlush(Mao m) {
 		if (flush(m) == 1 && straight(m) == 1) {
@@ -179,9 +179,9 @@ public class Mao extends ArrayList<Carta> {
 	}
 	
 	/**
-	 * Verifica se a mÃ£o tem um Full Hand (uma trinca e um par)
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver um Full Hand, ou 0 se nÃ£o.
+	 * Verifica se a mão tem um Full Hand (uma trinca e um par)
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver um Full Hand, ou 0 se não.
 	 */
 	public static int fullHand(Mao m) {
 		int [] iguais = conta(m);
@@ -203,9 +203,9 @@ public class Mao extends ArrayList<Carta> {
 	
 
 	/**
-	 * Verifica de a mÃ£o tem um Royal Straight Flush (5 cartas seguidas, do mesmo naipe, do 10 atÃ© o As).
-	 * @param m MÃ£o de cartas a ser verificada.
-	 * @return 1 se a mÃ£o tiver um Royal Straight Flush, ou 0 se nÃ£o.
+	 * Verifica de a mão tem um Royal Straight Flush (5 cartas seguidas, do mesmo naipe, do 10 até o As).
+	 * @param m Mão de cartas a ser verificada.
+	 * @return 1 se a mão tiver um Royal Straight Flush, ou 0 se não.
 	 */
 	public static int royalStraightFlush(Mao m) {
 		/*System.out.print("\nMao ta ordenada??\n");
@@ -213,35 +213,18 @@ public class Mao extends ArrayList<Carta> {
             System.out.print(m.get(i).getValor() + m.get(i).getNaipe() + ", "); 
 		 */
 		if(straightFlush(m) == 1) { //se for do mesmo naipe
-			if(m.get(0).getValor() == "10" && m.get(4).getValor() == "As") { //se a sequencia comeÃ§a no 10 e termina no As
-				return 1; //Ã© Royal Straigh Flush
+			if(m.get(0).getValor() == "10" && m.get(4).getValor() == "As") { //se a sequencia começa no 10 e termina no As
+				return 1; //é Royal Straigh Flush
 			}
 		}
 		return 0;
 	}
 	
 	/**
-	 * Printa as 5 cartas de uma mÃ£o.
-	 * @param m MÃ£o de cartas a ser printada.
+	 * Printa as 5 cartas de uma mão.
+	 * @param m Mão de cartas a ser printada.
 	 */
-	
-	/*		TEMPLATE DA CARTA â™  â™£ â™¥ â™¦
-	  
-    "â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”"
-    "â”‚x.       â”‚"
-    "â”‚         â”‚"
-    "â”‚         â”‚"
-    "â”‚    x    â”‚"
-    "â”‚         â”‚"
-    "â”‚         â”‚"
-    "â”‚       x.â”‚"
-    "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜"
-*/
-	
-	/*
 	public static void printaMao(Mao m) {
-
-
 		String r = "";  
 		String aresta = "+---------------+";    
 		String parede = "|";
@@ -279,121 +262,11 @@ public class Mao extends ArrayList<Carta> {
 		
 		System.out.println(r);
 	}
-	*/
 	
-	
-	
-	
-	public static void printaMao(Mao m) {
-
-
-			String r = "";  
-			
-			//String topo = "â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”";
-			String topo = "+---------+";
-			String esq = "        |";
-			String esq2 = "       |";
-			String vazio = "|         |";
-			String meio = "|    x    |";
-			String dir = "|        ";
-			String dir2 = "|       ";
-			String parede = "|";
-			String baixo = "+---------+";
-			String aux = "";
-			
-			//primeira linha
-			for(int i = 0; i < 5; i++){
-				r += topo;
-				r += "\t";
-			}
-			r += "\n";
-			
-			//Segunda linha - Valor
-			for(int i = 0; i < 5; i++) {
-				if(m.get(i).getValor() == "10" || m.get(i).getValor() == "As") {
-					aux = esq2;
-				}else {
-					aux = esq;
-				}
-				r += parede + m.get(i).getValor() + aux;
-				r += "\t";	
-				
-			}
-			r += "\n";
-			
-			//Terceira linha - vazio
-			for(int i = 0; i < 5; i++) {
-				r += vazio;
-				r += "\t";	
-				
-			}
-			r += "\n";
-			
-			//Quarta linha - Naipe
-			char naipe = 'a';
-			for(int i = 0; i < 5; i++) {
-				if(m.get(i).getNaipe() == m.get(1).getNaipe()) {
-					naipe = '\u2666';//"â™¦";
-				}
-				else if(m.get(i).getNaipe() == m.get(0).getNaipe()) {
-					naipe = '\u2764';//"â™¥";
-				}
-				else if(m.get(i).getNaipe() == m.get(3).getNaipe()) {
-					naipe = '\u2663';//"â™£";
-				}
-				else if(m.get(i).getNaipe() == m.get(2).getNaipe()) {
-					naipe = '\u2660';//"â™ ";
-				}
-				r += parede + "    " + naipe + "    " + parede;
-				r += "\t";
-			}
-			r += "\n";
-			
-			//Quinta linha - vazio
-			for(int i = 0; i < 5; i++) {
-				r += vazio;
-				r += "\t";	
-				
-			}
-			r += "\n";
-			
-			//Sexta linha - Valor
-			for(int i = 0; i < 5; i++) {
-				if(m.get(i).getValor() == "10" || m.get(i).getValor() == "As") {
-					aux = dir2;
-				}else {
-					aux = dir;
-				}
-				r += aux + m.get(i).getValor() + parede;
-				r += "\t";	
-				
-			}
-			r += "\n";
-			
-			//fim
-			for(int i = 0; i < 5; i++){
-				r += baixo;
-				r += "\t";
-			}
-			r += "\n";
-			
-				
-			r += "    " + "(1)" + "\t\t    " + "(2)" + "\t\t    " + "(3)" + "\t\t    " + "(4)" + "\t\t    " + "(5)" + "\n";
-			
-			System.out.println(r);
-			
-	          System.out.println("\u2665 This should be a Hearts suit symbol.");
-	          System.out.println("\u2666 This should be a Diamonds suit symbol.");
-	          System.out.println("\u2663 This should be a Clubs suit symbol.");
-	          System.out.println("\u2660 This should be a Spades suit symbol.");
-		}
-
-
-	
-	//Construtor da mÃ£o
+	//Construtor da mão
 	/**
-	 * Cria uma mÃ£o de 5 cartas, removendo-as de um baralho.
-	 * @param b Baralho de onde serÃ£o sacadas as cartas e colocadas na mÃ£o.
+	 * Cria uma mão de 5 cartas, removendo-as de um baralho.
+	 * @param b Baralho de onde serão sacadas as cartas e colocadas na mão.
 	 */
 	public Mao(Baralho b) {
 		super();
@@ -410,7 +283,7 @@ public class Mao extends ArrayList<Carta> {
 		Baralho deck = new Baralho();
 		//Mao m = new Mao(deck);
 		
-		//mÃ£o montada manualmente:
+		//mão montada manualmente:
 		Carta c1 = new Carta("K", "Ouros", 11);//String valor, String naipe, int intValor
 		Carta c2 = new Carta("10", "Ouros", 8);
 		Carta c3 = new Carta("As", "Ouros", 12);
@@ -425,7 +298,7 @@ public class Mao extends ArrayList<Carta> {
 		m2.add(c5);
 			
 		
-		//printando a mÃ£o
+		//printando a mão
         for (int i = 0; i < 5; i ++) 
             System.out.print(m2.get(i).getValor() + m2.get(i).getNaipe() + ", "); 
         
