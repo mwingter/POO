@@ -38,6 +38,28 @@ public class Main {
 		
 		return valorDigitado;
 	}
+	public static String getDoc(int size) {
+		String doc = null;
+		String tipo;
+		if(size == 11) {
+			tipo = "CPF";
+		}
+		else {
+			tipo = "CNPJ";
+		}
+		do {
+			try {
+				doc = EntradaTeclado.leString();
+			} catch (Exception e) {
+				System.out.print("Isto não é um " + tipo );
+			}
+			if(doc.length()  != size ) {
+				System.out.println("Digite um" + tipo + " válido.");
+			}
+		}while (doc.length() != size);
+		
+		return doc;
+	}
 		
 	public static void main (String[] args) throws IOException {
 		
@@ -59,7 +81,7 @@ public class Main {
 				
 				if(pType == 1) { //se for pessoa física
 					System.out.println("CPF: ");
-					String doc = EntradaTeclado.leString();
+					String doc = getDoc(11);
 					System.out.println("Data de nascimento: ");
 					String data = EntradaTeclado.leString();
 					System.out.println("Estado Civil: ");
@@ -70,7 +92,7 @@ public class Main {
 				}
 				else { //se for pessoa juridica
 					System.out.println("CNPJ: ");
-					String doc = EntradaTeclado.leString();
+					String doc = getDoc(14);
 					System.out.println("Inscrição Estadual: ");
 					String insc = EntradaTeclado.leString();
 					System.out.println("Razão Social: ");
@@ -83,7 +105,14 @@ public class Main {
 			}
 			else if (option == 2) { //REMOVER CONTATO
 				System.out.println("Digite o CPF ou CNPJ da pessoa que deseja remover:");
-				String doc = EntradaTeclado.leString();
+				String doc;
+				do {
+					doc = EntradaTeclado.leString();
+					if(doc.length() != 11 || doc.length() != 11) {
+						System.out.println("Digite um CPF ou CNPJ válido.");
+					}
+				}while(doc.length() != 11 || doc.length() != 11);
+				
 				int indexPessoa = Agenda.buscaContato(doc, agenda);
 				if(indexPessoa == -1) {
 					System.out.println("Pessoa não encontrada.");
@@ -109,7 +138,12 @@ public class Main {
 					
 				}else { //pesquisar por CPF/CNPJ
 					System.out.println("Digite o CPF/CNPJ que deseja pesquisar: ");
-					escolha = EntradaTeclado.leString();
+					do {
+						escolha = EntradaTeclado.leString();
+						if(escolha.length() != 11 || escolha.length() != 11) {
+							System.out.println("Digite um CPF ou CNPJ válido.");
+						}
+					}while(escolha.length() != 11 || escolha.length() != 11);
 					agenda = Agenda.ordenaAgenda(agenda);
 					index = Agenda.buscaContato(escolha, agenda);
 					if(index != -1) {

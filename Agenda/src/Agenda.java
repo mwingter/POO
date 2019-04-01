@@ -21,19 +21,16 @@ public class Agenda {
 		int i;
 		
 		for(i = 0; i < array.size(); i++) {
-			System.out.println("buscando pessoa......i = " + i);
 			if(array.get(i) instanceof PessoaFisica) {
-				System.out.println("cpf "+ array.get(i).getCpf());
 				if(array.get(i).getCpf().compareTo(doc) == 0) {
-					System.out.println("Contato de PF de nome ("+ array.get(i).getNome() 
-							+") e CPF (" + array.get(i).getCpf() +")encontrado em " + i);
+					//System.out.println("Contato de PF de nome ("+ array.get(i).getNome() 
+					//		+") e CPF (" + array.get(i).getCpf() +")encontrado em " + i);
 					return i;
 				}
 			}else {
-				System.out.println("cnpj" + array.get(i).getCnpj());
 				if(array.get(i).getCnpj().compareTo(doc) == 0) {
-					System.out.println("Contato de PJ de nome ("+ array.get(i).getNome() 
-							+") e CNPJ (" + array.get(i).getCnpj() +")encontrado em " + i);
+					//System.out.println("Contato de PJ de nome ("+ array.get(i).getNome() 
+					//		+") e CNPJ (" + array.get(i).getCnpj() +")encontrado em " + i);
 					return i;
 				}
 			}
@@ -52,10 +49,8 @@ public class Agenda {
 		int i;
 		
 		for(i = 0; i < array.size(); i++) {
-			System.out.println("buscando pessoa......i = " + i);
-			System.out.println("nome "+ array.get(i).getNome());
 			if(array.get(i).getNome().compareTo(nome) == 0) {
-				System.out.println("Contato de nome ("+ array.get(i).getNome() +")encontrado em " + i);
+				//System.out.println("Contato de nome ("+ array.get(i).getNome() +")encontrado em " + i);
 				return i;
 			}
 		}
@@ -63,9 +58,12 @@ public class Agenda {
 		return -1; //pessoa não encontrada
 	}
 	
-	//ordena que coloca os objetos em ordem	crescente de CPF/CNPJ. Além disso, todas as pessoas físicas 
-	//devem aparecer antes das pessoas jurídicas. 
-	//Note, o seu programa deve fazer a ordenação, implementando algum dos algoritmos	conhecidos.
+	/**
+	 * Coloca a agenda em ordem crescente de CPF/CNPJ. Além disso, todas as pessoas físicas 
+	 * devem aparecer antes das pessoas jurídicas. 
+	 * @param array Array da agenda de Pessoas Basicas
+	 * @return Array da agenda ordenado
+	 */
 	public static ArrayList<ContatoBasico> ordenaAgenda(ArrayList<ContatoBasico> array){ 
 		
 		//arrays list de pessoa fisica e juridica separados
@@ -74,7 +72,6 @@ public class Agenda {
 		
 		String strI;
 		String strJ;
-		ContatoBasico aux;
 		
 		//Separando o array em dois: um pra pessoa fisica e outro pra pessoa juridica
 		for(int i = 0; i < array.size(); i++) {
@@ -85,13 +82,13 @@ public class Agenda {
 			}
 		}
 		
-		PessoaFisica aux1;
+		
 		//ordenando o array de Pessoa Fisica por cpf/cnpj
+		PessoaFisica aux1;
 		for(int i = 0; i < arrayPF.size(); i++) {
 			for(int j = 0; j < arrayPF.size() - 1; j++) {
 				strI = arrayPF.get(j).getCpf();
 				strJ = arrayPF.get(j+1).getCpf();
-				System.out.println("str1: " + strI + " str2: " + strJ);
 				if(strJ.compareTo(strI) < 1) { //se o nome(j) <= nome(i)
 					aux1 = arrayPF.get(j);
 					arrayPF.set(j, arrayPF.get(j+1));
@@ -100,12 +97,12 @@ public class Agenda {
 			}
 		}
 		
+		//ordenando o array de Pessoa Juridica por cpf/cnpj
 		PessoaJuridica aux2;
 		for(int i = 0; i < arrayPJ.size(); i++) {
 			for(int j = 0; j < arrayPJ.size() - 1; j++) {
 				strI = arrayPJ.get(j).getCnpj();
 				strJ = arrayPJ.get(j+1).getCnpj();
-				System.out.println("str1: " + strI + " str2: " + strJ);
 				if(strJ.compareTo(strI) < 1) { //se o nome(j) <= nome(i)
 					aux2 = arrayPJ.get(j);
 					arrayPJ.set(j, arrayPJ.get(j+1));
@@ -131,9 +128,14 @@ public class Agenda {
 		return array;
 	}
 	
+	/**
+	 * Coloca a agenda em ordem crescente de nome. Além disso, todas as pessoas físicas 
+	 * devem aparecer antes das pessoas jurídicas. 
+	 * @param array Array da agenda de Pessoas Basicas
+	 * @return Array da agenda ordenado
+	 */
 	public static ArrayList<ContatoBasico> ordenaAgendaPorNome(ArrayList<ContatoBasico> array){
 		
-		ArrayList<ContatoBasico> ordenado = new ArrayList<ContatoBasico>();
 		String strI;
 		String strJ;
 		ContatoBasico aux;
