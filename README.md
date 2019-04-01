@@ -1,11 +1,12 @@
-Object-Oriented Programming
-SSC0103
+## Object-Oriented Programming SSC0103
 
-Institute of Mathematical and Computer Sciences
+---
 
-University of São Paulo
+### Institute of Mathematical and Computer Sciences
+
+### University of Sao Paulo
 
 Professor Marcio Eduardo Delamaro
 
-@author Michelle Wingter da Silva
+Michelle Wingter da Silva
 2019.1
