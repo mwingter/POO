@@ -1,0 +1,22 @@
+1
+1
+Maria
+Rua 1
+maria@usp
+66666666666
+000000
+alone
+1
+Jose
+Rua b
+jose@cu
+99999999999
+77777
+casado
+2
+Cu
+Rua c
+cu@usp
+11111111111
+6237236
+cagado
