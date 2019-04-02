@@ -1,4 +1,9 @@
-
+/**
+ * Administra atributos de um produto da loja.
+ * @author Michelle Wingter da Silva
+ * @author 10783243
+ *
+ */
 public class Produto {
 	private String codBarras;
 	private String nome;

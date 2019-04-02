@@ -1,21 +1,34 @@
 import java.util.ArrayList;
 
 /*
- *  Crie uma hierarquia de classes para representar os produtos de uma loja: livros, CDs e DVDs.
-Um produto é identificado unicamente pelo seu código de barras. Implemente, também, uma classe
-Loja que permite que sejam armazenados os produtos e que permita que possam ser adicionados
-produtos (numa certa quantidade), possam ser buscados produtos por código de barras ou por nome
-e possam ser vendidos produtos, dado seu código de barras. É desejável, também, uma
-funcionalidade que permita verificar todo o estoque da loja, mostrando o número de itens por
-produto e por categoria.
-*/
+ *
+	*/
+/**
+ *  Classe Loja:
+ * - permite que sejam armazenados os produtos 
+ *	-permita que possam ser adicionados produtos (numa certa quantidade), 
+ *	-possam ser buscados produtos por código de barras ou por nome
+ *	-possam ser vendidos produtos, dado seu código de barras
+ * @author Michelle Wingter da Silva
+ * @author 10783243
+ *
+ */
 public class Loja {
 	ArrayList<Produto> produto = new ArrayList<Produto>();
 	
+	/**
+	 * Adiciona produtos na loja. 
+	 * @param prod Produto a ser adicionado.
+	 */
 	public void armazenar(Produto prod){
 		produto.add(prod);
 	}
 	
+	/**
+	 * Busca na loja um dado produto através de seu código de barras.
+	 * @param cod Código de barras do produto.
+	 * @return O indice do produto na loja, ou -1 se não encontrado.
+	 */
 	public int buscarPorCod (String cod){
 		int i;
 		
@@ -27,6 +40,11 @@ public class Loja {
 		return -1;
 	}
 	
+	/**
+	 * Busca na loja um dado produto através de seu nome.
+	 * @param cod Nome do produto.
+	 * @return O indice do produto na loja, ou -1 se não encontrado.
+	 */
 	public int buscarPorNome (String nome){
 		int i;
 		
@@ -38,6 +56,10 @@ public class Loja {
 		return -1;
 	}
 	
+	/**
+	 * Remove um dado produto da loja através de seu código de barras.
+	 * @param cod Código de barras do produto.
+	 */
 	public void removeProduto (String cod){
 		int index = buscarPorCod(cod);
 		if(index == -1){
