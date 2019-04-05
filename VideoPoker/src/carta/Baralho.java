@@ -1,4 +1,8 @@
+package carta;
+import util.Random;
+
 import java.util.ArrayList;
+
 
 /**
  * Administra atributos de um Baralho

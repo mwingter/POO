@@ -1,3 +1,4 @@
+package carta;
 //Classe Carta, usada para administrar atributos de uma carta.
 /**
  * Administra atributos de uma carta

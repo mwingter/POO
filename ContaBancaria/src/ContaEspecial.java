@@ -17,8 +17,8 @@ public class ContaEspecial extends ContaBancaria {
 
 	@Override
 	public void atualiza(double taxa) {
-		// TODO Auto-generated method stub
-		
+		return;
+		//método não faz nada
 	}
 	
 

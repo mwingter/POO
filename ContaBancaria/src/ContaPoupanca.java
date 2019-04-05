@@ -15,9 +15,10 @@ private int vencimento;
 		this.vencimento = vencimento;
 	}
 
+	/* não preciso desse metodo aqui, pq essa classe eh abstrata, entao herda o metodo abstrato da ContaBancaria
 	public void atualiza(double taxa) {
 		double s = getSaldo();
 		setSaldo(s * (1.0 + taxa));
 	}
-	
+	*/
 }

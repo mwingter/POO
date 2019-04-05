@@ -1,4 +1,10 @@
+package main;
 import java.io.IOException;
+import carta.Baralho;
+import carta.Mao;
+import excessao.ETException;
+import util.EntradaTeclado;
+
 /**
  * 		VIDEO POKER
  *		O video poker é um jogo de cartas em que o usuário interage com o computador,
@@ -14,6 +20,7 @@ import java.io.IOException;
  *que recebeu. Em seguida, pode trocar mais uma vez as cartas para alcançar alguma
  *combinação.
  */
+
 
 /**
  * Administra e roda o jogo.
@@ -86,36 +93,59 @@ public class Poker {
 		System.out.println("~*~*~ BEM VINDO AO VIDEO POKER!!!! ~*~*~\n");
 		
 		int enter = 0;
+		/*
 		System.out.println("Digite 1 para começar.\n");
 		while (enter != 1) {
 			enter = EntradaTeclado.leInt();
 			if (enter != 1) System.out.println("Digite 1 para começar.\n");
 		}
+		*/
+			do {
+				try {
+					System.out.println("Digite 1 para começar.\n");
+					enter = EntradaTeclado.intBetween(1, 1);
+				}
+				catch (ETException e) {
+					System.out.println("Valor inválido!");
+				}
+				
+			}
+			while(enter != 1);
 		
 		
 		double saldo = 200;
 		
-		//criando baralho
-		Baralho baralho = new Baralho();
-		
-		//criando mão
-		Mao mao = new Mao(baralho);
-		
 		int rodada = 0;
 		
 		do {
-			//NOVA RODADA
+			//--------NOVA RODADA--------
+			//criando baralho
+			Baralho baralho = new Baralho();
+			//embaralhando o baralho
+			baralho.embaralha(baralho.size());
+			
+			//criando mão
+			Mao mao = new Mao(baralho);
+			
 			rodada++;
 			System.out.println("\n###### RODADA " + rodada + " ######");	
 			System.out.printf("Saldo: $%.2f \n", saldo);
 			
+			
 			//fazendo a aposta
 			System.out.println("\nDigite o valor que deseja apostar: ");
-			double aposta = EntradaTeclado.leDouble();
-			while(aposta < 0 || aposta > saldo) {
-				System.out.println("\nValor inválido. Digite um valor menor ou igual ao seu saldo, e maior ou igual a zero: ");
-				aposta = EntradaTeclado.leDouble();
-			}
+			
+			double aposta = -1;		
+			do {
+				try {
+					System.out.printf("Digite um valor entre $0,00 e $%.2f.\n$", saldo);
+					aposta = EntradaTeclado.doubleBetween(0, saldo);
+				}
+				catch (ETException e) {
+					System.out.println("\nValor inválido.");
+				}	
+			}while(aposta < 0 || aposta > saldo);
+			
 			saldo = saldo - aposta;
 			
 
@@ -125,16 +155,34 @@ public class Poker {
 			Mao.printaMao(mao);
 			
 			//PRIMEIRA TROCA
-			System.out.println("PRIMEIRA TROCA: Digite quantas cartas deseja tocar (de 0 a 5): ");
-			int n = EntradaTeclado.leInt();
+			System.out.println("******PRIMEIRA TROCA****** \n--->Digite quantas cartas deseja tocar (de 0 a 5): ");
+			int n = -1;		
+			do {
+				try {
+					System.out.println("Digite um número de 0 a 5.");
+					n = EntradaTeclado.intBetween(0, 5);
+				}
+				catch (ETException e) {
+					System.out.println("Valor inválido.");
+				}	
+			}while(n < 0 || n > 5);
 			
 			int option;
 			for(int i = 0; i < n; i++) {
 				System.out.printf("Digite a(s) carta(s) que deseja trocar\n");
-				option = EntradaTeclado.leInt();
-				if(option < 1 || option > 5) {
-					break;
+				option = -1;
+				
+				do {
+					try {
+						System.out.println("Digite um número de 1 a 5.\n");
+						option = EntradaTeclado.intBetween(1, 5);
+					}
+					catch (ETException e) {
+						System.out.println("Valor inválido.");
+					}	
 				}
+				while(option < 1 || option > 5);
+				
 				//trocando a carta escolhida
 				baralho.TrocarCarta(mao, option-1);
 			}
@@ -144,29 +192,48 @@ public class Poker {
 			
 			
 			//SEGUNDA TROCA
-			System.out.println("SEGUNDA TROCA: Digite quantas cartas deseja tocar (de 0 a 5): ");
-			n = EntradaTeclado.leInt();
+			System.out.println("******SEGUNDA TROCA****** \n--->Digite quantas cartas deseja tocar (de 0 a 5): ");
+			n = -1;		
+			do {
+				try {
+					System.out.println("Digite um número de 0 a 5.");
+					n = EntradaTeclado.intBetween(0, 5);
+				}
+				catch (ETException e) {
+					System.out.println("Valor inválido.");
+				}	
+			}while(n < 0 || n > 5);
 			
 			for(int i = 0; i < n; i++) {
-				System.out.println("Digite a(s) carta(s) que deseja trocar:");
-				option = EntradaTeclado.leInt();
-				if(option < 1 || option > 5) {
-					break;
+				System.out.printf("Digite a(s) carta(s) que deseja trocar\n");
+				option = -1;
+				
+				do {
+					try {
+						System.out.println("Digite um número de 1 a 5.\n");
+						option = EntradaTeclado.intBetween(1, 5);
+					}
+					catch (ETException e) {
+						System.out.println("Valor inválido.");
+					}	
 				}
+				while(option < 1 || option > 5);
+				
 				//trocando a carta escolhida
 				baralho.TrocarCarta(mao, option-1);
 			}
+			
 			System.out.println("Suas mão atualizada é: ");
 			Mao.printaMao(mao);
 			
 			//FIM DA RODADA -- RESULTADOS:
-			System.out.println("FIM DA RODADA\n" + "");
+			System.out.println("###### FIM DA RODADA " + rodada + " ######\n");
 			int bonus = premio(mao);
 			
 			saldo = saldo + (aposta * bonus); //atualizando o saldo com o premio ganho
 			
 			//FIM DA RODADA
-			
+						
 		}while(saldo > 0);
 		
 		

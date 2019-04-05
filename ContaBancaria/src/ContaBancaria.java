@@ -17,9 +17,9 @@ public abstract class ContaBancaria {
 	 */
 	public ContaBancaria(String n) {
 		nomeCliente = n;
-		numConta = proxConta;
+		numConta = proxConta++;
 		saldo = 0.0;
-		proxConta++;
+		//proxConta++;
 	}
 
 	/**

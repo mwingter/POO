@@ -1,3 +1,4 @@
+package carta;
 import java.util.ArrayList;
 //Classe Mao, usada para administrar atributos de uma mão.
 /**
@@ -222,23 +223,11 @@ public class Mao extends ArrayList<Carta> {
 	
 	/**
 	 * Printa as 5 cartas de uma mão.
-	 * @param m Mão de cartas a ser printada.
+	 * @param m Mao de cartas a ser printada.
 	 */
 	
-	/*		TEMPLATE DA CARTA ♠ ♣ ♥ ♦
-	  
-    "┌─────────┐"
-    "│x.       │"
-    "│         │"
-    "│         │"
-    "│    x    │"
-    "│         │"
-    "│         │"
-    "│       x.│"
-    "└─────────┘"
-*/
 	
-	/*
+	
 	public static void printaMao(Mao m) {
 
 
@@ -279,17 +268,16 @@ public class Mao extends ArrayList<Carta> {
 		
 		System.out.println(r);
 	}
-	*/
 	
 	
 	
 	
+	/*
 	public static void printaMao(Mao m) {
 
 
 			String r = "";  
 			
-			//String topo = "┌─────────┐";
 			String topo = "+---------+";
 			String esq = "        |";
 			String esq2 = "       |";
@@ -388,7 +376,7 @@ public class Mao extends ArrayList<Carta> {
 	          System.out.println("\u2660 This should be a Spades suit symbol.");
 		}
 
-
+	*/
 	
 	//Construtor da mão
 	/**
@@ -396,9 +384,9 @@ public class Mao extends ArrayList<Carta> {
 	 * @param b Baralho de onde serão sacadas as cartas e colocadas na mão.
 	 */
 	public Mao(Baralho b) {
-		super();
+		//super();
 		//setCreditos(200);
-		b.embaralha(52);
+		//b.embaralha(52);
 		
 		for(int i = 0; i < 5; i++) {
 			this.add(b.SacarCarta(i));
