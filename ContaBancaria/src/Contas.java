@@ -139,6 +139,7 @@ public class Contas {
 				break;
 			case 6: 
 				ct.printSaldos();
+				
 				break;
 			case 5:
 				System.out.println("Qual o valor da taxa? ");

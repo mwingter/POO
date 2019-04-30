@@ -10,4 +10,12 @@ public class PoupancaSimples extends ContaPoupanca{
 		double s = getSaldo();
 		setSaldo(s * (1.0  + taxa));
 	}
+	
+	@Override
+	public int compareTo(ContaBancaria conta) {
+		if( ! (conta instanceof PoupancaSimples)) {
+			return 1;
+		}
+		return super.compareTo(conta);
+	}
 }

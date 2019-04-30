@@ -3,7 +3,7 @@
  * @author delamaro
  *
  */
-public abstract class ContaBancaria {
+public abstract class ContaBancaria implements Comparable<ContaBancaria>{
 
 	private String nomeCliente;
 	private int numConta;
@@ -62,6 +62,20 @@ public abstract class ContaBancaria {
 	}
 	
 	public abstract void atualiza(double taxa);
+	
+	public int compareTo(ContaBancaria conta) {
+	//se conta é do mesmo tipo
+		if(this.getSaldo() < conta.getSaldo()) {
+			return -1;
+		}
+		else if(this.getSaldo() == conta.getSaldo()) {
+			return 0;
+		}
+		else { //if this > conta
+			return 1;
+		}
+	
+	}
 	
 
 }

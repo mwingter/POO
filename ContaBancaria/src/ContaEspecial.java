@@ -21,7 +21,13 @@ public class ContaEspecial extends ContaBancaria {
 		//método não faz nada
 	}
 	
-
+	@Override
+	public int compareTo(ContaBancaria conta) {
+		if( ! (conta instanceof ContaEspecial)) {
+			return -1;
+		}
+		return super.compareTo(conta);
+	}
 	
 	
 
