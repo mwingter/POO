@@ -1,0 +1,11 @@
+Americana Campinas  36,0  
+Americana Limeira  28,0  
+Americana Piracicaba  34,0  
+Limeira Piracicaba  30,0  
+Piracicaba RioClaro  41,0  
+Limeira RioClaro  41,0  
+RioClaro SãoCarlos  72,0  
+SãoCarlos Bauru  150,0  
+Piracicaba Bauru  209,0  
+RioClaro Bauru  162,0  
+Limeira Bauru  206,0  
