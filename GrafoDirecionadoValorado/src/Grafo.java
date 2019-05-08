@@ -17,7 +17,7 @@ public class Grafo {
 	public ArrayList<Aresta> arestas;
 	public ArrayList<Vertice> vertices;
 	
-	private double matrizAdj[][];
+	double matrizAdj[][];
 	
 	private Scanner scanner;
 	private File inFile;
@@ -63,27 +63,6 @@ public class Grafo {
 
 							
 		 }
-		/*
-		//printando a lista de vertices
-		for(int i = 0; i < vertices.size(); i++) {
-
-			System.out.println("v[" + i + "] = " + vertices.get(i).getNome());
-		}
-		
-		Vertice va;
-		Vertice vb;
-		matrizAdj=new double[vertices.size()][vertices.size()];
-		
-		for(int i = 0; i < vertices.size(); i++) {
-			for(int j = 0; j < vertices.size(); j++) {
-				va = vertices.get(i);
-				vb = vertices.get(j);
-				System.out.println("v1 = " + va.getNome() + ", v2 = " + vb.getNome());
-				matrizAdj[i][j] = existeAresta(va, vb);
-				System.out.println("M[" + i + "][" + j + "] = " + matrizAdj[i][j]);				
-			}
-			
-		}*/
 			
 	}
 	
@@ -92,11 +71,7 @@ public class Grafo {
 	 * os outros vértices. (Algoritmo do caminho mínimo)
 	 * @param args
 	 */
-	public void caminho_minimo() {
-		
-	}
-	
-	public static int[] menor_distancia(int inicio, double[][] ma, int tam){
+	public int[] caminho_minimo(int inicio, double[][] ma, int tam){
 	    int[] distancias = new int[tam];
 	    Queue<Integer> fila = new LinkedList<Integer>();
 
@@ -119,7 +94,6 @@ public class Grafo {
 	                fila.add(i);
 	            }
 	    }
-	  //  return distancias;
 	    return distancias;
 	}
 	
@@ -154,20 +128,18 @@ public class Grafo {
 		return 0.0;
 	}
 	
+	
 	public static void main(String args[]) throws FileNotFoundException {
 		Grafo G = new Grafo("Arquivo.txt");
+			
+		//for(int index = 0; index < G.arestas.size(); index++) {
+		//	System.out.println("Aresta: [" + G.arestas.get(index).getV1().getNome() + "] e [" + G.arestas.get(index).getV2().getNome() + "], com valor = " + G.arestas.get(index).getValor());
+		//}
 		
-		/*
-		for(int index = 0; index < G.arestas.size(); index++) {
-			System.out.println("Aresta: [" + G.arestas.get(index).getV1().getNome() + "] e [" + G.arestas.get(index).getV2().getNome() + "], com valor = " + G.arestas.get(index).getValor());
-		}*/
-		
-		//printando a lista de vertices
-		/*
-		for(int i = 0; i < G.vertices.size(); i++) {
-
-			System.out.println("v[" + i + "] = " + G.vertices.get(i).getNome());
-		}*/
+		//printando a lista de vertices		
+		//for(int i = 0; i < G.vertices.size(); i++) {
+		//	System.out.println("v[" + i + "] = " + G.vertices.get(i).getNome());
+		//}
 		
 		Vertice va;
 		Vertice vb;
@@ -187,7 +159,7 @@ public class Grafo {
 		//int[] distancia = menor_distancia(0, G.matrizAdj, G.vertices.size());
 		
 		for(int i = 0; i < G.vertices.size(); i++) {
-			int[] distancia = menor_distancia(i, G.matrizAdj, G.vertices.size());
+			int[] distancia = G.caminho_minimo(i, G.matrizAdj, G.vertices.size());
 			System.out.println("- O menor caminho entre:");
 			for(int j = 0; j < G.vertices.size(); j++) {
 				if(i != j && distancia[j] != -1) {

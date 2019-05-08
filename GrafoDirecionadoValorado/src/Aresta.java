@@ -24,12 +24,6 @@ public class Aresta {
 		return valor;
 	}
 
-	/**
-	 * @param valor the valor to set
-	 */
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
 
 	/**
 	 * @return the v1
@@ -38,12 +32,6 @@ public class Aresta {
 		return v1;
 	}
 
-	/**
-	 * @param v1 the v1 to set
-	 */
-	public void setV1(Vertice v1) {
-		this.v1 = v1;
-	}
 
 	/**
 	 * @return the v2
@@ -52,24 +40,4 @@ public class Aresta {
 		return v2;
 	}
 
-	/**
-	 * @param v2 the v2 to set
-	 */
-	public void setV2(Vertice v2) {
-		this.v2 = v2;
-	}
-	
-	/**
-	 * Verifica se a aresta dada existe no grafo.
-	 * @return 	1 se a aresta existe;
-	 * 			0 se a aresta não existe.
-	 */
-	public int existeAresta(Vertice v1, Vertice v2) {
-		if((this.v1 == v1)&&(this.v2 == v2))
-			return 1; //existe aresta
-		if((this.v1 == v2)&&(this.v2 == v1)) 
-			return 1; //existe aresta
-		
-		return 0; //a aresta não existe
-	}
 }

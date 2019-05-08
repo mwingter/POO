@@ -13,12 +13,7 @@ public class Vertice {
 	public String getNome() {
 		return nome;
 	}
-	/**
-	 * @param nome the nome to set
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 
 	public Vertice(String n) {
 		this.nome = n;
