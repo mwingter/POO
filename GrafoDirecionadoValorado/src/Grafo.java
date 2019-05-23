@@ -42,8 +42,6 @@ public class Grafo {
 			
 			//System.out.println("a = |" + a + "| e b= |" + b + "| e n = |" + arestaStr + "|" );
 			
-			//float n = scanner.nextFloat(); //valor da aresta
-			
 			Vertice v1 = new Vertice(a);
 			Vertice v2 = new Vertice(b);
 			//se os vertices ainda não estão na lista de vertices, adicionar
@@ -56,12 +54,10 @@ public class Grafo {
 			
 			double valor = Double.parseDouble(arestaStr);
 			Aresta a1 = new Aresta(v1, v2, valor);
-			//if(arestas.contains(a1) == false) {
+			if(arestas.contains(a1) == false) {
 				arestas.add(a1);
-			//}
-			
-
-							
+			}
+									
 		 }
 			
 	}

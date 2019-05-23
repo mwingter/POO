@@ -34,7 +34,7 @@ public class Mao extends ArrayList<Carta> {
 	 * @param m Mão de cartas a ser contado.
 	 * @return count Vetor com a contagem das cartas da mão.
 	 */
-	public static int[] conta(Mao m) {
+	public int[] conta(Mao m) {
 		int [] count = new int [13];
 		for(int j = 0; j < 13; j++) {
 			count[j] = 0;
@@ -56,7 +56,7 @@ public class Mao extends ArrayList<Carta> {
 	 * @return 1 se a mão tiver Dois Pares, 0 se não tiver.
 	 */
 	public static int doisPares(Mao m) {
-		int [] iguais = conta(m);
+		int [] iguais = m.conta(m);
 		int count = 0;
 		for(int i = 0; i < 13; i++) {
 			if(iguais[i] == 2) {
@@ -78,7 +78,7 @@ public class Mao extends ArrayList<Carta> {
 	 */
 	public static int trinca(Mao m) { 
 		
-		int [] iguais = conta(m);
+		int [] iguais = m.conta(m);
 		//int count = 0;
 		for(int i = 0; i < 13; i++) {
 			if(iguais[i] == 3) {
@@ -95,7 +95,7 @@ public class Mao extends ArrayList<Carta> {
 	 */
 	public static int quadra(Mao m) {
 			
-		int [] iguais = conta(m);
+		int [] iguais = m.conta(m);
 		//int count = 0;
 		for(int i = 0; i < 13; i++) {
 			if(iguais[i] == 4) {
@@ -185,7 +185,7 @@ public class Mao extends ArrayList<Carta> {
 	 * @return 1 se a mão tiver um Full Hand, ou 0 se não.
 	 */
 	public static int fullHand(Mao m) {
-		int [] iguais = conta(m);
+		int [] iguais = m.conta(m);
 		int temPar = 0;
 		int temTrinca = 0;
 		for(int i = 0; i < 13; i++) {
